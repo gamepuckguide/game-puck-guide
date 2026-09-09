@@ -1,13 +1,19 @@
-GAME PUCK GUIDE — CLOUDFLARE STARTER
+GAME PUCK GUIDE — NCAA DIRECTORY BUILD
 
-This is a no-framework static starter matching the Game Puck Guide homepage concept.
+This update adds:
+- ncaa-womens-d3.html — NCAA Division III women's hockey directory
+- ncaa-womens-data.js — conference/team data
+- Updated homepage NCAA links
+- Existing GPG-branded homepage
 
-NEXT STEP:
-1. Create a GitHub account/repository named game-puck-guide.
-2. Upload these files to the repository.
-3. In Cloudflare Dashboard go to Workers & Pages > Create application.
-4. Connect GitHub and select the repository.
-5. Deploy it. Cloudflare will provide a workers.dev preview URL.
-6. We can then replace the sample puck data with the real database and connect your domain.
+Upload these files to the root of the connected GitHub repository:
+index.html
+styles.css
+script.js
+gpg-logo.png
+ncaa-womens-d3.html
+ncaa-womens-data.js
 
-The site is intentionally built without external libraries so it is easy to deploy and inexpensive to host.
+Cloudflare should redeploy automatically after the GitHub commit.
+
+Important: this is the first directory pass. Before we treat it as the final master list, we should audit every 2026-27 affiliation and then add official URLs, logos, first-season data, arenas, conference history and puck records.

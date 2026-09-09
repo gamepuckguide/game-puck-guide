@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NCAA Division III Women's Hockey | Game Puck Guide</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.directory-hero{background:linear-gradient(110deg,#03080c,#0b2434);padding:55px 5%;border-bottom:3px solid #087bd2}
+.directory-hero h1{font-size:48px;margin:0 0 10px;font-weight:1000}.directory-hero h1 em{color:#087bd2;font-style:normal}.directory-hero p{color:#b7c2c9;max-width:780px;line-height:1.6}
+.dir-tools{background:#0b151d;padding:22px 5%;display:flex;gap:12px;position:sticky;top:0;z-index:5;border-bottom:1px solid #294452}.dir-tools input{flex:1;max-width:600px;height:45px;padding:0 15px}.dir-tools select{height:45px;background:#061018;color:#fff;border:1px solid #3b5666;padding:0 12px}
+.dir-main{padding:35px 5%;background:#eef3f6;color:#0a141b}.conf{margin-bottom:30px}.conf-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}.conf-head h2{margin:0;font-size:23px}.badge{background:#087bd2;color:#fff;padding:5px 9px;font-size:11px;font-weight:900}.teams{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.team{background:#fff;border:1px solid #ccd7dd;padding:16px;text-decoration:none;color:#111;font-weight:800;min-height:55px;display:flex;align-items:center;transition:.15s}.team:hover{border-color:#087bd2;transform:translateY(-2px);box-shadow:0 5px 12px #ccd3d7}.note{font-size:12px;color:#52616a;margin:0 0 25px;padding:12px 15px;background:#fff;border-left:4px solid #087bd2}
+@media(max-width:800px){.teams{grid-template-columns:repeat(2,1fr)}.directory-hero h1{font-size:37px}.dir-tools{display:block}.dir-tools input,.dir-tools select{width:100%;max-width:none;margin-bottom:8px}}
+</style></head>
+<body>
+<div class="top">THE DEFINITIVE RESOURCE FOR HOCKEY GAME PUCKS <span>COLLECT / RESEARCH / DISCOVER / PRESERVE</span></div>
+<header><a class="logo" href="index.html"><img src="gpg-logo.png" alt="Game Puck Guide"></a>
+<div class="title-lockup"><h1>GAME PUCK GUIDE</h1><div>OFFICIAL GAME PUCK REFERENCE</div></div>
+<div class="header-search"><label>SEARCH PUCKS. EXPLORE HISTORY. KEEP THE GAME ALIVE.</label><form><input placeholder="Search teams, leagues, seasons, or pucks..."><button>⌕</button></form></div></header>
+<nav><a href="index.html">HOME</a><a class="active" href="#">NCAA</a><a href="#">NHL</a><a href="#">AHL</a><a href="#">ECHL</a><a href="#">JUNIOR</a><a href="#">INTERNATIONAL</a><a href="#">WOMEN'S HOCKEY</a><a href="#">RESOURCES</a></nav>
+<section class="directory-hero"><h1>NCAA DIVISION III <em>WOMEN'S HOCKEY</em></h1><p>Browse the Game Puck Guide directory by conference and team. This is the foundation for the puck pages, season pages and conference history we will build next.</p></section>
+<div class="dir-tools"><input id="teamSearch" placeholder="Search for a school..."><select id="confFilter"><option value="">All conferences</option></select></div>
+<main class="dir-main"><p class="note"><strong>2026-27 directory build:</strong> conference affiliations are being organized as the site's master directory. We will add team logos, official links, first season, arena, puck history and individual puck records to each team page.</p><div id="directory"></div></main>
+<footer id="footer"><div class="footer-brand"><img src="gpg-logo.png"><div><h2>GAME PUCK GUIDE</h2><small>OFFICIAL GAME PUCK REFERENCE</small><p>Preserving hockey history, one puck at a time.</p></div></div><div><h3>QUICK LINKS</h3><a href="index.html">Home</a><a href="#">NCAA</a><a href="#">Search</a></div><div><h3>NCAA</h3><a href="#">Division III Women's</a><a href="#">Teams</a><a href="#">Conferences</a></div><div><h3>GPG</h3><small>SEARCH PUCKS. EXPLORE HISTORY.<br>KEEP THE GAME ALIVE.</small></div></footer>
+<script src="ncaa-womens-data.js"></script>
+<script>
+const root=document.getElementById('directory'), search=document.getElementById('teamSearch'), filter=document.getElementById('confFilter');
+NCAA_WOMENS_D3.forEach(c=>{let o=document.createElement('option');o.value=c.abbr;o.textContent=c.name;filter.appendChild(o)});
+function render(){const q=search.value.toLowerCase(), f=filter.value;root.innerHTML=NCAA_WOMENS_D3.filter(c=>!f||c.abbr===f).map(c=>{
+ const teams=c.teams.filter(t=>t.toLowerCase().includes(q)); if(!teams.length)return '';
+ return `<section class="conf"><div class="conf-head"><h2>${c.name}</h2><span class="badge">${c.abbr}</span><span class="badge">${teams.length} teams</span></div><div class="teams">${teams.map(t=>`<a class="team" href="#">${t}</a>`).join('')}</div></section>`;
+}).join('')||'<p>No teams matched your search.</p>'}
+search.addEventListener('input',render);filter.addEventListener('change',render);render();
+</script></body></html>
