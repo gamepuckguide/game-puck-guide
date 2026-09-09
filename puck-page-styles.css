@@ -1,0 +1,204 @@
+/* GPG individual puck page additions */
+:root {
+  --gpg-blue: #1769ff;
+  --gpg-dark: #080b10;
+  --gpg-panel: #111720;
+  --gpg-line: #25303d;
+  --gpg-text: #f5f7fa;
+  --gpg-muted: #9aa6b5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #080b10;
+  color: var(--gpg-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.site-header {
+  background: #05070a;
+  border-bottom: 1px solid var(--gpg-line);
+}
+.header-inner, .page, .footer-inner {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+}
+.header-inner {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.brand img { width: 190px; display: block; }
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-left: auto;
+}
+.main-nav a {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: #cbd2dc;
+}
+.main-nav a:hover { color: white; }
+.page { padding: 30px 0 70px; }
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #7f8a99;
+  font-size: 12px;
+  margin-bottom: 34px;
+}
+.breadcrumbs a { color: #aeb9c8; }
+.puck-hero {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 55px;
+  align-items: center;
+  padding: 34px 0 65px;
+}
+.eyebrow {
+  color: var(--gpg-blue);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  margin-bottom: 12px;
+}
+h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: .98;
+  margin: 0 0 16px;
+  letter-spacing: -.04em;
+}
+h1 span { color: var(--gpg-blue); }
+.subhead {
+  color: #b4bfcc;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+.intro {
+  max-width: 680px;
+  color: #9da9b8;
+  line-height: 1.75;
+  font-size: 16px;
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 32px;
+  border: 1px solid var(--gpg-line);
+  background: var(--gpg-line);
+}
+.details-grid div {
+  background: var(--gpg-panel);
+  padding: 18px;
+}
+.details-grid small {
+  display: block;
+  color: #7f8a99;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  margin-bottom: 7px;
+}
+.details-grid strong { font-size: 14px; }
+.puck-visual {
+  display: flex;
+  justify-content: center;
+}
+.image-placeholder {
+  aspect-ratio: 1 / 1;
+  width: min(390px, 100%);
+  border: 1px dashed #44505e;
+  background:
+    radial-gradient(circle at 50% 45%, #1e2732 0 34%, #111720 35% 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #8793a1;
+}
+.image-placeholder span {
+  color: var(--gpg-blue);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+.image-placeholder strong {
+  margin-top: 8px;
+  font-size: 15px;
+}
+.image-placeholder small {
+  margin-top: 8px;
+  color: #697584;
+}
+.section-heading {
+  border-top: 1px solid var(--gpg-line);
+  padding-top: 34px;
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: 34px;
+  margin: 0;
+  letter-spacing: -.03em;
+}
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.image-card {
+  background: var(--gpg-panel);
+  border: 1px solid var(--gpg-line);
+  padding: 20px;
+}
+.image-placeholder.large { width: 100%; }
+.image-card h3 {
+  margin: 16px 0 2px;
+  font-size: 16px;
+}
+.description-section, .notes-section { margin-top: 65px; }
+.record-box {
+  background: var(--gpg-panel);
+  border: 1px solid var(--gpg-line);
+  padding: 25px 28px;
+  color: #aab5c3;
+  line-height: 1.75;
+}
+.record-box p { margin: 0; }
+.record-box.muted { color: #7f8a99; }
+.back-link {
+  margin-top: 45px;
+  font-weight: 800;
+  color: var(--gpg-blue);
+}
+.site-footer {
+  border-top: 1px solid var(--gpg-line);
+  background: #05070a;
+}
+.footer-inner {
+  min-height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #7f8a99;
+  font-size: 12px;
+}
+.footer-inner strong { color: white; }
+.footer-inner p { margin: 5px 0 0; }
+@media (max-width: 850px) {
+  .header-inner { align-items: flex-start; flex-direction: column; padding: 20px 0; }
+  .main-nav { margin-left: 0; gap: 12px; }
+  .puck-hero { grid-template-columns: 1fr; gap: 35px; }
+  .puck-visual { order: -1; }
+}
+@media (max-width: 600px) {
+  .image-grid, .details-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; padding: 24px 0; }
+}

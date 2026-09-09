@@ -1,0 +1,6 @@
+<!-- Replace the existing 2025–26 season card/link with:
+<a class="season-card" href="st-norbert-2025-26.html">
+  <span>2025–26</span>
+  <strong>Game Puck</strong>
+</a>
+-->
